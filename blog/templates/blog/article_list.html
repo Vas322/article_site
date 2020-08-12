@@ -1,0 +1,54 @@
+{% extends 'blog/base.html' %}
+{% load thumbnail %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %} Главная страница {% endblock title %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			{% for article in articles_last %}
+			{% if forloop.first %}
+
+			<div class="first-article">
+				<p class="text-new">New</p>
+				<h1 class="title-first-article">{{ article.title }}</h1>
+				{% if article.image %}
+				<div class="col-md-auto image-first-article"><img src=" {{ article.image.url }}">
+				</div>
+				{% else %}
+				<img src=" {{ article.image.url }}" class="main-image">
+				{% endif %}
+				<div class="text-first-article">{% autoescape off %}
+				{{ article.text|truncatechars:150 }}{% endautoescape %}</div>
+				<a href="{% url 'detail_article' pk=article.pk %}">
+					<button class="btn btn-primary" type="submit">Читать</button>
+				</a>   
+			</div>
+			<hr>
+			<p class="other-articles">Другие статьи</p>
+			{% else %}
+
+			<div  class="article-list border rounded col-md-3">
+
+				<a href="{% url 'detail_article' pk=article.pk %}">
+
+					<div class="article-list-item date-item">{{ article.created_date }}</div>
+					{% if article.image %}
+					<div class="article-list-item image-item"><img src=" {{ article.image.url }}"></div>
+					{% else %}
+					<img class="article-list-item image-item" src=" {{ article.image.url }}" class="main-image">
+					{% endif %}
+					<div class="article-list-item title-item">{{ article.title }}</div>
+					{% endif %}	
+				</a>
+
+			</div>
+
+			{% endfor %}
+		</div>
+	</div>
+</div>	
+{% endblock content %}

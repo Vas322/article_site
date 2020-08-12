@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% load thumbnail %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %} Статья {% endblock title %}
+
+{% block content %}
+<div class="container-sm">
+	<div class="row">
+		<div class="col-sm">
+		</div>
+		<div class="col-sm">
+			<h2 class="detail-title"> {{ art.title }}</h2>
+			{% if art.image %}
+			<div class="image-detail"> <img src=" {{ art.image.url }}"></div>
+			{% endif %}
+			<div class="">				
+				<p>{% autoescape off %}{{ art.text}}{% endautoescape %}</p>
+			</div>				
+		</div>
+		<div class="col-sm">
+		</div>
+	</div>
+</div>
+{% endblock content %}

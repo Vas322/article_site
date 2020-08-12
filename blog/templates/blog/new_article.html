@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% load bootstrap4 %}
+
+
+{% block title %}Добавление объявления{% endblock title %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-md">
+			<p class="added-article-text">Добавить статью</p>
+			<form method="post" enctype="multipart/form-data" >
+				{% csrf_token %}
+				{{ form.media }}
+				{% bootstrap_form form  %}
+				{% buttons submit='Опубликовать' %} {% endbuttons %}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock content %}
