@@ -7,23 +7,25 @@ from .models import Article
 from .forms import ArticleForm
 
 
-def article_list(request):
-    """Контроллер, который отображает список последних 10 статей"""
-    articles_last = Article.objects.filter(created_date__lte=timezone.now()).order_by(
-        '-created_date')[:10]
-    context = {'articles_last': articles_last}
+def articles_list(request):
+    """Controller that displays a list of 10 most recent articles"""
+    art_last = Article.objects.filter(
+        created_date__lte=timezone.now()).order_by('-created_date')[:1]
+    art_list = Article.objects.filter(
+        created_date__lte=timezone.now()).order_by('-created_date')[1:10]
+    context = {'art_list': art_list, 'art_last': art_last}
     return render(request, "blog/article_list.html", context)
 
 
 def detail_article(request, pk):
-    """Контроллер отображает детальную информацию о статье"""
+    """The controller displays detailed information about the article"""
     art = get_object_or_404(Article, pk=pk)
     context = {'art': art}
     return render(request, 'blog/detail_article.html', context)
 
 
 def new_article(request):
-    """Контроллер создания новой статьи"""
+    """Controller for creating a new article"""
     if request.method == 'POST':
         form = ArticleForm(request.POST, request.FILES)
         if form.is_valid():

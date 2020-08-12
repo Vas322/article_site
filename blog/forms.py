@@ -4,7 +4,7 @@ from ckeditor.widgets import CKEditorWidget
 
 
 class ArticleForm(forms.ModelForm):
-    """Форма для создания статьи"""
+    """Form for creating an article"""
     forms.CharField(widget=CKEditorWidget, label='')
 
     class Meta:

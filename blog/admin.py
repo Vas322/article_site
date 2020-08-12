@@ -5,7 +5,7 @@ from blog.models import Article
 # Register your models here.
 
 class ArticleAdmin(admin.ModelAdmin):
-    """Отображение статьи в админке"""
+    """Displaying an article in the admin panel"""
     fieldsets = [
         ('Введите название статьи', {'fields': ['title']}),
         ('Введите текст статьи', {'fields': ['text'[:20]]}),

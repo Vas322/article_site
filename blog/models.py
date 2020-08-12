@@ -7,12 +7,12 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 def get_timestamp_path(instance, filename):
-    """Функция генерирует имена картинок исходя из текущей даты"""
+    """The function creates picture names based on the current date"""
     return "%s%s" % (datetime.now().timestamp(), splitext(filename)[1])
 
 
 class Article(models.Model):
-    """Модель описывает статью"""
+    """Model describes article"""
     title = models.CharField(max_length=200, verbose_name='Введите название статьи')
     text = RichTextUploadingField(verbose_name='', blank=True, config_name='default')
     created_date = models.DateTimeField(verbose_name='Дата создания статьи',
@@ -30,7 +30,7 @@ class Article(models.Model):
             img.save(self.image.path)
 
     class Meta:
-        """Атрибут, позволяющий использовать форму множественного числа 'Статьи' """
+        """Attribute allows you to use the plural form of 'Articles'"""
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
         ordering = ['-created_date']
