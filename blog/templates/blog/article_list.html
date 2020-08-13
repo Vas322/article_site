@@ -9,46 +9,44 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12">
-			{% for article in articles_last %}
-			{% if forloop.first %}
+			{% for art in art_last %}
 
 			<div class="first-article">
 				<p class="text-new">New</p>
-				<h1 class="title-first-article">{{ article.title }}</h1>
-				{% if article.image %}
-				<div class="col-md-auto image-first-article"><img src=" {{ article.image.url }}">
+				<h1 class="title-first-article">{{ art.title }}</h1>
+				{% if art.image %}
+				<div class="col-md-auto image-first-article"><img src=" {{ art.image.url }}">
 				</div>
 				{% else %}
-				<img src=" {{ article.image.url }}" class="main-image">
+				<img src=" {{ art.image.url }}" class="main-image">
 				{% endif %}
 				<div class="text-first-article">{% autoescape off %}
-				{{ article.text|truncatechars:150 }}{% endautoescape %}</div>
-				<a href="{% url 'detail_article' pk=article.pk %}">
+				{{ art.text|truncatechars:150 }}{% endautoescape %}</div>
+				<a href="{% url 'detail_article' pk=art.pk %}">
 					<button class="btn btn-primary" type="submit">Читать</button>
 				</a>   
 			</div>
-			<hr>
-			<p class="other-articles">Другие статьи</p>
-			{% else %}
-
-			<div  class="article-list border rounded col-md-3">
-
-				<a href="{% url 'detail_article' pk=article.pk %}">
-
-					<div class="article-list-item date-item">{{ article.created_date }}</div>
-					{% if article.image %}
-					<div class="article-list-item image-item"><img src=" {{ article.image.url }}"></div>
-					{% else %}
-					<img class="article-list-item image-item" src=" {{ article.image.url }}" class="main-image">
-					{% endif %}
-					<div class="article-list-item title-item">{{ article.title }}</div>
-					{% endif %}	
-				</a>
-
-			</div>
-
 			{% endfor %}
+			<hr>
 		</div>
 	</div>
-</div>	
+</div>
+<div class="container">
+	<p class="other-articles">Другие статьи</p>
+	<div class="row">			
+		{% for art in art_list %}
+		<div  class="article-list border rounded col-md-3">
+			<a href="{% url 'detail_article' pk=art.pk %}">
+				<div class="article-list-item date-item">{{ art.created_date }}</div>
+				{% if art.image %}
+				<div class="article-list-item image-item"><img src=" {{ art.image.url }}"></div>
+				{% else %}
+				<img class="article-list-item image-item" src=" {{ art.image.url }}" class="main-image">
+				{% endif %}
+				<div class="article-list-item title-item">{{ art.title }}</div>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+</div>
 {% endblock content %}
