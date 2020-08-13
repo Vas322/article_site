@@ -1,0 +1,161 @@
+.page-header{
+	height: 80px;
+}
+.image-header {
+	position: absolute;
+	top: 35px;
+	left: 120px;
+ }
+.blog-text{
+	position: absolute;
+
+	left: 269px;
+	top: 38px;
+
+	font-family: Circe Rounded;
+	font-size: 30px;
+	line-height: 26px;
+
+	color: #010101;
+}
+.btn-header{
+	position: absolute;
+	right: 120px;
+	top: 32px;
+ }
+.text-new{
+	font-family: Circe Rounded;
+	font-size: 16px;
+	line-height: 20px;
+	/* identical to box height, or 125% */
+
+	display: flex;
+	align-items: center;
+	letter-spacing: -0.416667px;
+
+	color: #E9399C;
+}
+
+.title-first-article{
+	position: absolute;
+	max-width: 600px;
+
+	font-family: Museo Cyrl;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 44px;
+	line-height: 56px;
+	/* or 56px */
+
+	display: flex;
+	align-items: center;
+	letter-spacing: -0.416667px;
+
+	color: #315AF2; 
+}
+.image-first-article{
+	left: 700px;
+
+}
+.text-first-article{
+	width: 391px;
+	height: 108px;
+	left: 120px;
+	top: 343px;
+
+	font-family: Circe Rounded;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 22px;
+	/* or 136% */
+
+	display: flex;
+	align-items: center;
+	letter-spacing: -0.416667px;
+
+	color: #000000;
+}
+.other-articles{
+
+	font-family: Museo Cyrl;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 32px;
+	line-height: 38px;
+	display: flex;
+	align-items: center;
+	letter-spacing: -0.416667px;
+
+	color: #315AF2;
+}
+.date-item{
+	font-family: Circe Rounded;
+	font-size: 12px;
+	line-height: 20px;
+	/* identical to box height, or 167% */
+
+	display: flex;
+	align-items: center;
+	letter-spacing: -0.416667px;
+	color: #979797;
+}
+.image-item{
+	height: 220px;
+	text-align: center;
+}
+.article-list{
+	margin: 30px;
+	min-width: 300px;
+
+}
+.title-item{	
+	align-items: center;
+	text-align: center;
+}
+
+.added-article-text{
+	width: 435px;
+	height: 52px;
+	left: 120px;
+	top: 210px;
+
+	font-family: Museo Cyrl;
+	font-size: 45px;
+	line-height: 52px;
+	/* identical to box height, or 116% */
+
+	letter-spacing: -0.416667px;
+
+	color: #315AF2;
+}
+.container-sm{
+	background-color: #E5E5E5;
+	height: 2055px;
+	text-align: center;
+}
+.detail-title{
+	color: #315AF2;
+	text-align: left;
+	font-family: Museo Cyrl;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 32px;
+	line-height: 41px;
+	/* or 41px */
+
+	letter-spacing: -0.416667px;
+
+	color: #315AF2;
+
+
+	/* Inside Auto Layout */
+
+	flex: none;
+	order: 0;
+	align-self: flex-start;
+	margin: 0px 20px;
+}
+.image-detail{
+	width: 100%;
+}
